@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>All Savers</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{font-family:Arial;background:#f0f4f8;padding:15px}
+.card{max-width:700px;margin:auto;background:white;padding:20px;border-radius:15px}
+table{width:100%;border-collapse:collapse;margin-top:15px}
+th,td{padding:10px;border-bottom:1px solid #eee;text-align:left}
+th{background:#0d2a54;color:white}
+.btn{padding:6px 10px;border-radius:5px;text-decoration:none;color:white;font-size:12px}
+.view{background:#28a745} .del{background:#dc3545}
+.total{font-size:20px;font-weight:bold;color:#0d2a54;text-align:center;margin:15px 0}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>📋 All Savers</h2>
+<div class="total">Total Saved: UGX {{ "{:,.0f}".format(total) }}</div>
+<table>
+<tr><th>Name</th><th>Phone</th><th>Total</th><th>Weekly</th><th>Action</th></tr>
+{% for s in savers %}
+<tr>
+<td>{{ s.full_name }}</td>
+<td>{{ s.phone }}</td>
+<td>{{ "{:,.0f}".format(s.total_deposit) }}</td>
+<td>{{ "{:,.0f}".format(s.weekly) }}</td>
+<td>
+<a class="btn view" href="/receipt/{{ s.id }}">Receipt</a>
+<a class="btn del" href="/delete/{{ s.id }}">X</a>
+</td>
+</tr>
+{% endfor %}
+</table>
+<br><a href="/">← Back to Deposit</a>
+</div>
+</body>
+</html>

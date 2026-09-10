@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MIU SAVE - Deposit</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{font-family:Arial;background:#f0f4f8;margin:0;padding:20px}
+.card{max-width:450px;margin:30px auto;background:white;padding:25px;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.1)}
+h2{color:#0d2a54;text-align:center}
+input,select{width:100%;padding:14px;margin:8px 0;border:1px solid #ddd;border-radius:8px;box-sizing:border-box}
+.btn{background:#0d2a54;color:white;border:none;padding:15px;width:100%;border-radius:8px;font-weight:bold;cursor:pointer;font-size:16px;margin-top:10px}
+.btn:hover{background:#163f7a}
+.momo{display:flex;gap:10px;margin:10px 0}
+.momo button{flex:1;padding:12px;border:2px solid #ddd;border-radius:8px;cursor:pointer;font-weight:bold}
+.mtn{border-color:#ffcc00 !important;background:#fff8e1}
+.airtel{border-color:#ff0000 !important;background:#ffe6e6}
+.link{display:block;text-align:center;margin-top:15px;color:#0d2a54}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>💰 MIU SAVE</h2>
+<p style="text-align:center;color:#666">Weekly Savings</p>
+<form method="POST">
+<input name="full_name" placeholder="Full Name" required>
+<input name="phone" placeholder="Phone 07..." required>
+<input name="total_deposit" type="number" placeholder="Total Deposit 100000" required>
+<input name="weekly" type="number" placeholder="Weekly 10000" required>
+
+<div class="momo">
+<button type="button" class="mtn" onclick="setMethod('MTN')">📱 MTN MoMo</button>
+<button type="button" class="airtel" onclick="setMethod('Airtel')">📱 Airtel Money</button>
+</div>
+
+<select name="method" id="method" required>
+<option value="Cash">Cash</option>
+<option value="MTN">MTN Mobile Money</option>
+<option value="Airtel">Airtel Money</option>
+</select>
+
+<button class="btn" type="submit">SAVE NOW</button>
+</form>
+<a class="link" href="/dashboard">View All Savers →</a>
+</div>
+<script>
+function setMethod(m){document.getElementById('method').value=m; alert(m+' selected')}
+</script>
+</body>
+</html>
