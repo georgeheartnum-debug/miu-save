@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MIU SAVE Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{font-family:Arial;background:#0d2a54;display:flex;justify-content:center;align-items:center;height:100vh;margin:0}
+.card{background:white;padding:30px;border-radius:15px;width:320px;box-shadow:0 10px 30px rgba(0,0,0,0.3)}
+input{width:100%;padding:14px;margin:8px 0;border:1px solid #ddd;border-radius:8px;box-sizing:border-box}
+.btn{background:#0d2a54;color:white;border:none;padding:14px;width:100%;border-radius:8px;font-weight:bold;cursor:pointer}
+.error{color:red;text-align:center;margin-bottom:10px}
+</style>
+</head>
+<body>
+<div class="card">
+<h2 style="text-align:center">🔒 MIU SAVE</h2>
+<p style="text-align:center;color:#666">Admin Login</p>
+{% if error %}<div class="error">{{ error }}</div>{% endif %}
+<form method="POST">
+<input name="username" placeholder="Username" value="admin" required>
+<input name="password" type="password" placeholder="Password" required>
+<button class="btn">LOGIN</button>
+</form>
+<p style="font-size:12px;text-align:center;margin-top:15px;color:#888">Username: admin<br>Password: miu2026</p>
+</div>
+</body>
+</html>
