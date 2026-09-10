@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Receipt</title>
+<style>
+body{font-family:Arial;background:#f0f4f8;padding:20px}
+.receipt{max-width:400px;margin:40px auto;background:white;padding:30px;border-radius:10px;border:2px dashed #0d2a54}
+h2{text-align:center;color:#0d2a54}
+.line{border-bottom:1px solid #eee;padding:10px 0;display:flex;justify-content:space-between}
+.stamp{text-align:center;margin-top:20px;border:2px solid #28a745;color:#28a745;padding:10px;border-radius:10px;transform:rotate(-10deg);width:120px;margin:20px auto}
+@media print{.no-print{display:none}}
+</style>
+</head>
+<body>
+<div class="receipt">
+<h2>MIU SAVE RECEIPT</h2>
+<p style="text-align:center">{{ s.date.strftime('%d/%m/%Y %H:%M') }}</p>
+<div class="line"><span>Name:</span><b>{{ s.full_name }}</b></div>
+<div class="line"><span>Phone:</span><b>{{ s.phone }}</b></div>
+<div class="line"><span>Total Deposit:</span><b>UGX {{ "{:,.0f}".format(s.total_deposit) }}</b></div>
+<div class="line"><span>Weekly:</span><b>UGX {{ "{:,.0f}".format(s.weekly) }}</b></div>
+<div class="line"><span>Method:</span><b>{{ s.method }}</b></div>
+<div class="stamp">✓ PAID</div>
+<button class="no-print" onclick="window.print()" style="width:100%;padding:12px;background:#0d2a54;color:white;border:none;border-radius:8px;margin-top:10px">🖨️ Print Receipt</button>
+<br><br><a class="no-print" href="/dashboard">View All Savers</a> | <a class="no-print" href="/">New Deposit</a>
+</div>
+</body>
+</html>

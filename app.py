@@ -1,7 +1,7 @@
+import os 
 from flask import Flask, render_template, request, redirect, session, url_for
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-
 app = Flask("miu_save")
 app.secret_key = "miu-save-2026-secret"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///miu_save.db'
@@ -84,4 +84,6 @@ def delete(id):
     db.session.commit()
     return redirect('/dashboard')
 
-app.run(debug=True)
+if _name_ == '_main_':
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host='0.0.0.0', port=port)
